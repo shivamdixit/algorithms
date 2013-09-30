@@ -1,5 +1,16 @@
+/**
+ *@author        : Shivam Dixit
+ *@file          : quick_sort.c
+ *@description   : Heap Sort implementation
+ */
 #include<stdio.h>
 
+
+/**
+ *Function definition
+ *partition()   to partition the array into two
+ *quicksort()   to sort the array
+ */
 int partition(int *,int,int);
 int quicksort(int *,int,int);
 
@@ -22,6 +33,12 @@ int main(int argc, char const *argv[])
 	return 0;
 }
 
+
+/**
+ *@desc Function to sort an array using quick sort algorithm
+ *@param array, left of array, right of array
+ *@return int
+ */
 int quicksort(int *a,int l,int r)
 {
 	int j;
@@ -32,6 +49,12 @@ int quicksort(int *a,int l,int r)
 	quicksort(a,j+1,r);
 }
 
+
+/**
+ *@desc Function to place the piviot element at correct position and partition from that element
+ *@param array, left of array, right of array
+ *@return int
+ */
 int partition(int *a,int l,int r)
 {
 	int piviot,i,j,temp,flag=0;

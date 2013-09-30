@@ -1,8 +1,8 @@
-/*  
-Algorithm : Seive of eratosthenes 
-Purpose : To find all prime number upto n
-Logic : Iterative marking of numbers as composite
-*/
+/**
+ *@author        : Shivam Dixit
+ *@file          : seive_of_eratosthenes.c
+ *@description   : Algorithm to find prime number upto N natural numbers
+ */
 
 #include<stdio.h>
 #include<time.h>

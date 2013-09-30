@@ -1,6 +1,7 @@
 /**
- *Name : Heapsort
- *Author : Shivam
+ *@author        : Shivam Dixit
+ *@file          : heapsort.c
+ *@description   : Heap Sort implementation
  */
 #include<stdio.h>
 
@@ -11,6 +12,11 @@
 
 int heapsize = SIZE;
 
+/**
+ *@return  : void
+ *@params  : array,index
+ *@desc    : Function to max-heapify a node
+ */
 void maxHeapify(int *a,int index)
 {
 	int l,r,largest=0,temp;
@@ -31,6 +37,11 @@ void maxHeapify(int *a,int index)
 	}
 }
 
+/**
+ *@return  : void
+ *@params  : array
+ *@desc    : Function to build a max heap
+ */
 void buildMaxHeap(int *a)
 {
 	int n = heapsize /2,i;
@@ -38,6 +49,12 @@ void buildMaxHeap(int *a)
 		maxHeapify(a,i);
 }
 
+
+/**
+ *@return  : void
+ *@params  : array
+ *@desc    : Function sort an array using heapsort
+ */
 void heapsort(int *a)
 {
 	int i,temp;
@@ -52,6 +69,12 @@ void heapsort(int *a)
 	}
 }
 
+
+/**
+ *@return  : int
+ *@params  : NULL
+ *@desc    : main() function
+ */
 int main(int argc, char const *argv[])
 {
 	int a[11],i;

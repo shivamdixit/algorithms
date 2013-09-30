@@ -1,5 +1,15 @@
+/**
+ *@author        : Shivam Dixit
+ *@file          : heapsort.c
+ *@description   : Heap Sort implementation
+ */
 #include<stdio.h>
 
+
+/**
+ *Function definition
+ *insertionSort()
+ */
 void insertionSort(int *,int);
 
 int main(int argc, char const *argv[])
@@ -23,6 +33,12 @@ int main(int argc, char const *argv[])
 	return 0;
 }
 
+
+/**
+ *@desc Function to sort an array using insertion sort algorithm
+ *@param array, size of array
+ *@return void
+ */
 void insertionSort(int *a,int size)
 {
 	int i,j,temp;
