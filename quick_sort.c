@@ -1,7 +1,7 @@
 /**
  *@author        : Shivam Dixit
  *@file          : quick_sort.c
- *@description   : Heap Sort implementation
+ *@description   : Quick Sort implementation
  */
 #include<stdio.h>
 

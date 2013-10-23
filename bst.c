@@ -31,7 +31,13 @@ typedef struct node node;
  */
 node * createNode(void);
 int insertInBST(node ** , int );
-int printBST(node *);
+int preOrderTraversal(node *);
+int postOrderTraversal(node *);
+int inOrderTraversal(node *);
+int breadthFirstSearch(node *);
+
+
+int flag=0;
 
 /**
  *main() begins
@@ -42,9 +48,9 @@ int main(int argc, char const *argv[])
 	int choice =1,element;
 	system("clear");
 	printf("Program to implement Binary Search Tree\n");
-	while(choice != 3)
+	while(choice != 6)
 	{
-		printf("Enter your choice\n1.Insert element in Tree.\n2.Print Tree\n3.Exit\n");
+		printf("Enter your choice\n\t1.Insert element in Tree.\n\t2.Print Tree in Preorder Traversal\n\t3.Print Tree in Postorder Traversal\n\t4.Print Tree in Inorder Traversal\n\t5.Search a element\n\t6.Exit\n");
 		scanf("%d",&choice);
 		switch(choice)
 		{
@@ -52,11 +58,23 @@ int main(int argc, char const *argv[])
 					scanf("%d",&element);
 					if(insertInBST(&root,element))
 						printf("Successfully Inserted !!\n");
+					else
+						printf("Duplicate Element\n");
 					break;
-			case 2: printBST(root);
+			case 2: preOrderTraversal(root);
 					break;
-			case 3: break;
-
+			case 3: postOrderTraversal(root);
+					break;
+			case 4:	inOrderTraversal(root);
+					break;
+			case 5: printf("Enter element you want to search ?\n");
+					scanf("%d",&element);
+					if(searchInBST(root,element))
+						printf("Element found\n");
+					else
+						printf("Not found\n");
+					break;
+			case 6:break;
 			default : printf("Invalid choice. Enter again\n");
 					 break;
 		}
@@ -130,18 +148,105 @@ int insertInBST(node ** root, int element)
  *@params  : Root of BST
  *@desc    : Function to print the BST in PREORDER TRAVERSAL
  */
-int printBST(node * root)
+int preOrderTraversal(node * root)
 {
 	if(root == NULL)
 		return;
 	printf("%d ",root->info);
 	if(root->left != NULL)
 	{
-		printBST(root->left);
+		preOrderTraversal(root->left);
 	}
 	if(root->right != NULL)
 	{
-		printBST(root->right);
+		preOrderTraversal(root->right);
 	}
 	return 1;
 }
+
+/**
+ *@return  : integer
+ *@params  : Root of BST
+ *@desc    : Function to print the BST in POSTORDER TRAVERSAL
+ */
+int postOrderTraversal(node * root)
+{
+	if(root == NULL)
+		return;
+	if(root->left != NULL)
+		postOrderTraversal(root->left);
+	if(root->right != NULL)
+		postOrderTraversal(root->right);
+	printf("%d ",root->info);
+}
+
+
+
+/**
+ *@return  : integer
+ *@params  : Root of BST
+ *@desc    : Function to print the BST in INORDER TRAVERSAL
+ */
+int inOrderTraversal(node * root)
+{
+	if(root == NULL)
+		return;
+	if(root->left != NULL)
+		inOrderTraversal(root->left);
+	printf("%d ",root->info);
+	if(root->right != NULL)
+		inOrderTraversal(root->right);
+}
+
+/**
+ *@return  : integer
+ *@params  : Root of BST , element to be searched
+ *@desc    : Function to search a node in a BST
+ */
+int searchInBST(node * root,int element)
+{
+	if(root == NULL)
+		return 0;
+	node *p;
+	p = root;
+	if(p->info == element)
+	{
+		flag = 1;
+		return 1;
+	}
+	else if(p->info > element)
+		searchInBST(p->left,element);
+	else if(p->info < element)
+		searchInBST(p->right,element);
+	if(flag)
+	{
+		flag= 0;
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+
+/**
+ *@return  : integer
+ *@params  : Root of BST
+ *@desc    : Function to print the BST in Breadth First
+ *To be completed
+ */
+// int breadthFirstSearch(node * root)
+// {
+// 	if(root == NULL)
+// 		return;
+// 	printf("%d ",root->info);
+// 	if(root->left != NULL)
+// 		printf("%d ",root->left->info);
+// 	if(root->right != NULL)
+// 		printf("%d ",root->right->info);
+// 	if(root->left != NULL)
+// 		breadthFirstSearch(root->left);
+// 	if(root->right != NULL)
+// 		breadthFirstSearch(root->right);
+// }
