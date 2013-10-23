@@ -24,7 +24,7 @@ struct node
 typedef struct node node;
 
 /**
- *Function definitions
+ *Function declarations
  *createNode
  *insertInBST
  *printBST
