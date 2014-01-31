@@ -10,11 +10,11 @@
 
 int main()
 {
-	int n,a[1000001]={0},i,j;   //a[i]==0 means prime, a[i]==1 means not prime
+	unsigned long long int n,a[1000001]={0},i,j;   //a[i]==0 means prime, a[i]==1 means not prime
 	clock_t begin,end;
 	begin = clock();
 	printf("Enter upto where you want prime numbers : ");
-	scanf("%d",&n);
+	scanf("%llu",&n);
 	if(n>1000001 || n<2)
 		return;
 	for(i=2;i<=n;i++)
@@ -30,7 +30,7 @@ int main()
 	for (i = 2; i <=n; ++i)
 	{
 		if(a[i]==0)
-			printf("%d ",i);
+			printf("%llu ",i);
 	}
 	printf("\n");
 	end = clock();

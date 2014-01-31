@@ -1,13 +1,13 @@
 /**
  *@author        : Shivam Dixit
- *@file          : quick_sort.c
+ *@file          : selection_sort.c
  *@description   : Selection Sort implementation
  */
 
 #include<stdio.h>
 
 /**
- *Function definition
+ *Function declaration
  *selectionSort()   to sort an array
  */
 void selectionSort(int *,int);
@@ -45,6 +45,7 @@ void selectionSort(int *a,int size)
 	{
 		min = *(a+i);
 		pos = i;
+		flag=0;
 		for(j=i+1;j<size;j++)
 		{
 			if(*(a+j) < min)
